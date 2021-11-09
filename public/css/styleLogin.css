@@ -13,6 +13,16 @@ body {
     padding: 20px;
     width: 400px;
   }
+  .button-container{
+    display: flex;
+    justify-content: space-around;
+  }
+  .button-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+  }
   .alert-danger{
     color: red;
   }
@@ -127,7 +137,7 @@ body {
     height: 50px;
     margin-top: 38px;
     text-align: center;
-    width: 100%;
+    width: 40%;
   }
   
   .submit:active {

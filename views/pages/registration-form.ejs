@@ -2,6 +2,7 @@
 <html>
   <head>
     <link href="./css/styleLogin.css" rel="stylesheet" />
+    <script src="./js/button.js"></script>
   </head>
   <body>
     <form class="rform" method="POST" action="/register">
@@ -124,11 +125,15 @@
         </div>
       </div>
 
-      <button type="text" class="submit">submit</button>
+      <div class="button-container">
+        <button type="text" class="submit">submit</button>
+      </div>
       <% if (locals.error) { %>
         <div class="alert alert-danger"><%= locals.error %></div>
       <% } %>
-      <a class="link" href="/login">want to login</a>
-    </form>
+        <a class="link" href="/login">want to login</a>
+        <br />
+        <a href="/" class="link">cancel</button>
+        </form>
   </body>
 </html>
