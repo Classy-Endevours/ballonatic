@@ -5,7 +5,7 @@ const flash = require("connect-flash");
 const bodyParser = require("body-parser"); // middleware
 const { body } = require("express-validator");
 const { checkLogin, registerUser } = require("./controllers/authCtrl");
-global.universal = require('./data/balloonatic-phase2')
+global.universal = require("./data/balloonatic-phase2");
 const app = express();
 
 // set the view engine to ejs
@@ -32,7 +32,7 @@ app.use(function (req, res, next) {
 });
 // index page
 app.get("/", function (req, res) {
-  res.render("pages/index", { user : req.session.user });
+  res.render("pages/index", { user: req.session.user });
 });
 
 // about page
@@ -56,16 +56,65 @@ app.get("/register", function (req, res, next) {
   res.render("pages/registration-form");
 });
 // save register details
-app.post("/register", 
-body("email")
+app.post(
+  "/register",
+  body("email")
     .notEmpty()
     .withMessage("email cannot be empty!")
     .isEmail()
-    .withMessage("please give valid email"),
+    .withMessage("please give valid email")
+    .isLength({ max: 40 }),
   body("password")
     .notEmpty()
     .withMessage("password cannot be empty!")
-    .isLength({ min: 5 }),
+    .isLength({ min: 8, max: 32 })
+    .matches(/^(?=.*\d)(?=.*[A-Z])(?!.*[^a-zA-Z0-9@#$^+=])(.{8,32})$/)
+    .withMessage(
+      "Password should be 8 in length with one uppercase and number!"
+    ),
+  body("cpassword").custom((value, { req }) => {
+    if (value !== req.body.password) {
+      throw new Error("Password confirmation does not match password");
+    }
+    return true;
+  }),
+  body("firstname")
+    .notEmpty()
+    .withMessage("firstname cannot be empty!")
+    .isLength({ max: 25 })
+    .withMessage("please give valid name"),
+  body("lastname")
+    .notEmpty()
+    .withMessage("firstname cannot be empty!")
+    .isLength({ max: 25 })
+    .withMessage("please give valid name"),
+  body("address")
+    .optional()
+    .isLength({ max: 30 })
+    .withMessage("please give valid address"),
+  body("city")
+    .optional()
+    .isLength({ max: 25 })
+    .withMessage("please give valid city"),
+  body("state")
+  .custom((value, { req }) => {
+    if(!value){
+      return true;
+    } else {
+      if(global.universal.stateCodes.includes(value.toUpperCase())){
+        return true
+      }
+      throw new Error("State should be 2 digit and valid");
+    }
+  }),
+  body("postalCode")
+    .optional()
+    .isLength({ max: 5 })
+    .withMessage("please give valid postal code"),
+  body("phone")
+    .optional()
+    .isLength({ max: 10, min: 10 })
+    .withMessage("please give valid phone"),
   registerUser
 );
 // check login details
@@ -86,5 +135,9 @@ app.get("/logout", function (req, res) {
   req.session.destroy();
   res.render("pages/logout");
 });
+
+app.use(function (err, req, res, next) {
+  res.render("pages/error");
+})
 app.listen(8080);
 console.log("Server is listening on port 8080");

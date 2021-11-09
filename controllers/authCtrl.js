@@ -30,6 +30,14 @@ const registerUser = (req, res) => {
   }
   const { models, users } = global.universal
   const { email, password, phone, postalCode, state, city, address, lastname, firstname } = req.body
+  const currentUser = users.find(
+    (user) => user.email === email
+  );
+  if (currentUser) {
+    req.flash("error", "Email already exist");
+    res.redirect("/register");
+    return;
+  }
   const user = new models.User()
   user.email = email;
   user.password = password;

@@ -287,5 +287,6 @@ module.exports = {
     products,
     quotes,
     buffer,
-    jsonObject
+    jsonObject,
+    stateCodes
 }
