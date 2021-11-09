@@ -137,10 +137,14 @@ div {
     grid-template-areas: 'section1 section1 section1 mainAside';
     margin: 3px;
     justify-content: space-evenly;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .section1 {
     grid-area: section1;
+    width: 100%;
 }
 
 .mainAside {
@@ -148,6 +152,7 @@ div {
     display: grid;
     flex-direction: column;
     justify-content: space-evenly;
+    width: 40%;
 }
 
 .product {

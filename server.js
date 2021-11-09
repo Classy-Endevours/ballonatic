@@ -33,9 +33,21 @@ app.use(function (req, res, next) {
 });
 // index page
 app.get("/", function (req, res) {
-  res.render("pages/index", { user: req.session.user });
+  // get three random products
+  const n = 3
+  res.render("pages/index", { user: req.session.user, products: global.universal.products.map(x => ({ x, r: Math.random() }))
+  .sort((a, b) => a.r - b.r)
+  .map(a => a.x)
+  .slice(0, n) });
 });
 
+// about page
+app.get("/quote", function (req, res) {
+  const items = global.universal.quotes
+  res.status(200).send({
+    quote: items[Math.floor(Math.random()*items.length)]
+  })
+});
 // about page
 app.get("/about", function (req, res) {
   res.render("pages/about");

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="./css/styleHome.css" rel="stylesheet">
+    <script src="./js/quote.js"></script>
     <script src="./js/button.js"></script>
     <script src="./js/time.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -14,10 +15,8 @@
 
 <body>
     <%- include('../partials/header'); %>
-
     <main>
         <%- include('../partials/nav'); %>
-
         <div class="hero">
             <a class="prev-btn"><i class="fas fa-chevron-left"></i></a>
             <div class="slides-container">
@@ -39,16 +38,26 @@
         <div class="mainSection">
             <div class="section1">
                 <p class="sectionTitle">Product Features</p>
-                <article class="product">Even during the pandemic, life goes on...Parties, family and business gatherings are still going on in both virtual and in-person. Balloons are commonly used to attract attention or add beauty to a paticular place. Foil balloons have recently
-                    become more popular than latex balloons. They come in a wide range of sizes, shapes, colors, and designs. In comparison to the others, they ensure a longer life for the air packed in the balloon. </article>
-                <article class="product">Helium-filled foil branded balloons are a perfect fit for product launches and special events, adding a feeling of celebration. Giving these balloons out to children at events such as trade shows is a great way to get it noticed around
-                    the venue. Helium branded balloons stay afloat for hours creating maximum exposure all day long.
-
+                <%
+                for ( var i = 0; i < products.length; i++ )
+                {
+                    %>  <article class="product"> 
+                            <ul>
+                                <p>Product name: <%= products[i].productName %> </p>
+                                <p>Product category: <%= products[i].category %> </p>
+                                <p>Product color: <%= products[i].color %> </p>
+                                <p>Product price per unit: <%= products[i].unitPrice %> </p>
+                                <p>Product quantity per unit: <%= products[i].quantityInStock %> </p>
+                            </ul>
+                        </article>
+                    <%
+                }
+                %>
             </div>
             <aside class="mainAside">
                 <p class="sectionTitle ">Customer Tributes</p>
 
-                <article class="quote">
+                <article class="quote" id="home-quote">
                     A quote from the principal owner, Krista E:<br>"We have a range of colours and options available, please look at the gallery for a portfolio of pictures. Get in touch and we can discuss your requirements and how you envision your bespoke
                     decorations. Our prime goal is your satisfaction."
                 </article>
