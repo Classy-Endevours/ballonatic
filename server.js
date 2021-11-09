@@ -1,3 +1,4 @@
+const createError = require('http-errors');
 const express = require("express");
 const session = require("express-session");
 const cookieParser = require("cookie-parser");
@@ -135,7 +136,10 @@ app.get("/logout", function (req, res) {
   req.session.destroy();
   res.render("pages/logout");
 });
-
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  next(createError(404));
+});
 app.use(function (err, req, res, next) {
   res.render("pages/error");
 })
