@@ -1,11 +1,37 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="/">EJS Is Fun</a>
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="/">Home</a>
+<header id="pageHeader">
+  <a id="logo" href="homepage.html">
+    <img src="./images/logo.jpeg" alt="Logo" />
+    <title>The Balloonatic Asylum</title>
+  </a>
+  <nav id="mainNav">
+    <ul>
+      <li>
+        <div class="Productdropdown">
+          <button class="Productdropbtn" onclick="myProduct()">
+            Products
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+            <a href="productpage.html">Birthday Bouquets</a>
+            <a href="productpage.html">Balloony Occasion</a>
+            <a href="productpage.html">Build a Balloon Bouquet</a>
+            <a href="productpage.html">Decorating with Balloons</a>
+            <a href="productpage.html">Balloons in Bulk</a>
+          </div>
+        </div>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/about">About</a>
+      <li>
+        <div class="Productdropdown">
+          <button class="Productdropbtn" onclick="myAbout()">About</button>
+        </div>
+      </li>
+      <li>
+        <div class="Productdropdown">
+          <button class="Productdropbtn" onclick="myContact()">
+            Contact Us
+          </button>
+        </div>
       </li>
     </ul>
   </nav>
+</header>

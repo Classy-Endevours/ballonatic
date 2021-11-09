@@ -13,119 +13,11 @@
 </head>
 
 <body>
-    <header id=pageHeader>
-        <a id="logo" href="homepage.html"><img src="./images/logo.jpeg" alt="Logo">
-            <title>The Balloonatic Asylum </title>
-        </a>
-        <nav id="mainNav">
-            <ul>
-                <li>
-                    <div class="Productdropdown">
-                        <button class="Productdropbtn" onclick="myProduct()">
-                        Products
-                        <i class="fa fa-caret-down"></i>
-                        </button>
-                        <div class="dropdown-content">
-                            <a href="productpage.html">Birthday Bouquets</a>
-                            <a href="productpage.html">Balloony Occasion</a>
-                            <a href="productpage.html">Build a Balloon Bouquet</a>
-                            <a href="productpage.html">Decorating with Balloons</a>
-                            <a href="productpage.html">Balloons in Bulk</a>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="Productdropdown">
-                        <button class="Productdropbtn" onclick="myAbout()">
-                         About  
-                        </button>
-                    </div>
-                </li>
-                <li>
-                    <div class="Productdropdown">
-                        <button class="Productdropbtn" onclick="myContact()">
-                    Contact Us  
-                </button>
-                    </div>
-                </li>
-            </ul>
+    <%- include('../partials/header'); %>
 
-
-        </nav>
-    </header>
     <main>
-        <nav id="navbar_products">
-            <ul>
-                <div class="dropdown">
-                    <button class="dropbtn" onclick="myProduct()">
-                        Birthday Bouquets
-                        <i class="fa fa-caret-down"></i>
-                    </button>
-                    <div class="dropdown-content">
-                        <a href="productpage.html">Most Popular</a>
-                        <a href="productpage.html">Birthday Boy</a>
-                        <a href="productpage.html">Birthday Girl</a>
-                        <a href="productpage.html">Custom Name</a>
-                        <a href="productpage.html">Mystery Bouquet</a>
-                    </div>
-                </div>
-                <div class="dropdown">
-                    <button class="dropbtn" onclick="myProduct()">
-                        Balloony Occasion
-                        <i class="fa fa-caret-down"></i>
-                    </button>
-                    <div class="dropdown-content">
-                        <a href="productpage.html">Graduation</a>
-                        <a href="productpage.html">Good Luck!</a>
-                        <a href="productpage.html">Get Well</a>
-                        <a href="productpage.html">Wedding</a>
-                        <a href="productpage.html">Retirement</a>
-                        <a href="productpage.html">Patriotic</a>
-                        <a href="productpage.html">Christamas</a>
-                        <a href="productpage.html">Hanukkah</a>
-                        <a href="productpage.html">Eid</a>
-                    </div>
-                </div>
-                <div class="dropdown">
-                    <button class="dropbtn" onclick="myProduct()">
-                        Build a Balloon Bouquet
-                        <i class="fa fa-caret-down"></i>
-                    </button>
-                    <div class="dropdown-content">
-                        <a href="productpage.html">Numbers</a>
-                        <a href="productpage.html">Big Letters</a>
-                        <a href="productpage.html">Common Designs</a>
-                    </div>
-                </div>
-                <div class="dropdown">
-                    <button class="dropbtn" onclick="myProduct()">
-                        Decorating with Balloons
-                        <i class="fa fa-caret-down"></i>
-                    </button>
-                    <div class="dropdown-content">
-                        <a href="productpage.html">Arches</a>
-                        <a href="productpage.html">Trees</a>
-                        <a href="productpage.html">Kites</a>
-                        <a href="productpage.html">Umbrellas</a>
-                        <a href="productpage.html">Columns</a>
-                        <a href="productpage.html">Centerpieces</a>
-                    </div>
-                </div>
-                <div class="dropdown">
-                    <button class="dropbtn" onclick="myProduct()">
-                        Balloons in Bulk
-                        <i class="fa fa-caret-down"></i>
-                    </button>
-                    <div class="dropdown-content">
-                        <a href="productpage.html">Small Latex</a>
-                        <a href="productpage.html">Large Latex</a>
-                        <a href="productpage.html">Small Mylar</a>
-                        <a href="productpage.html">Large Mylar</a>
-                        <a href="productpage.html">Special Orders</a>
-                    </div>
-                </div>
-            </ul>
-        </nav>
+        <%- include('../partials/nav'); %>
+
         <div class="hero">
             <a class="prev-btn"><i class="fas fa-chevron-left"></i></a>
             <div class="slides-container">
@@ -163,8 +55,7 @@
             </aside>
         </div>
     </main>
-    <footer id="pageFooter"><small><img src="./images/logo.jpeg " alt="Logo ">&copy;
-            2021 Balloonatic Asylum. All rights reserved. </small></footer>
+    <%- include('../partials/footer'); %>
 </body>
 
 </html>

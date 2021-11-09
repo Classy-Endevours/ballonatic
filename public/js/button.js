@@ -1,15 +1,15 @@
 function myFunction() {
-    window.location.assign("homepage.html");
+    window.location.assign("/");
 }
 
 function myProduct() {
-    window.location.assign("productpage.html");
+    window.location.assign("product");
 }
 
 function myAbout() {
-    window.location.assign("aboutPage.html");
+    window.location.assign("about");
 }
 
 function myContact() {
-    window.location.assign("contactPage.html");
+    window.location.assign("contact");
 }
