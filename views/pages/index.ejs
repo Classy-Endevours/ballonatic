@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="./css/styleHome.css" rel="stylesheet">
+    <script src="./js/button.js"></script>
+    <script src="./js/time.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" />
+    <title>The Ballonatic Asylum</title>
+</head>
+
+<body>
+    <header id=pageHeader>
+        <a id="logo" href="homepage.html"><img src="./images/logo.jpeg" alt="Logo">
+            <title>The Balloonatic Asylum </title>
+        </a>
+        <nav id="mainNav">
+            <ul>
+                <li>
+                    <div class="Productdropdown">
+                        <button class="Productdropbtn" onclick="myProduct()">
+                        Products
+                        <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-content">
+                            <a href="productpage.html">Birthday Bouquets</a>
+                            <a href="productpage.html">Balloony Occasion</a>
+                            <a href="productpage.html">Build a Balloon Bouquet</a>
+                            <a href="productpage.html">Decorating with Balloons</a>
+                            <a href="productpage.html">Balloons in Bulk</a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="Productdropdown">
+                        <button class="Productdropbtn" onclick="myAbout()">
+                         About  
+                        </button>
+                    </div>
+                </li>
+                <li>
+                    <div class="Productdropdown">
+                        <button class="Productdropbtn" onclick="myContact()">
+                    Contact Us  
+                </button>
+                    </div>
+                </li>
+            </ul>
+
+
+        </nav>
+    </header>
+    <main>
+        <nav id="navbar_products">
+            <ul>
+                <div class="dropdown">
+                    <button class="dropbtn" onclick="myProduct()">
+                        Birthday Bouquets
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="productpage.html">Most Popular</a>
+                        <a href="productpage.html">Birthday Boy</a>
+                        <a href="productpage.html">Birthday Girl</a>
+                        <a href="productpage.html">Custom Name</a>
+                        <a href="productpage.html">Mystery Bouquet</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn" onclick="myProduct()">
+                        Balloony Occasion
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="productpage.html">Graduation</a>
+                        <a href="productpage.html">Good Luck!</a>
+                        <a href="productpage.html">Get Well</a>
+                        <a href="productpage.html">Wedding</a>
+                        <a href="productpage.html">Retirement</a>
+                        <a href="productpage.html">Patriotic</a>
+                        <a href="productpage.html">Christamas</a>
+                        <a href="productpage.html">Hanukkah</a>
+                        <a href="productpage.html">Eid</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn" onclick="myProduct()">
+                        Build a Balloon Bouquet
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="productpage.html">Numbers</a>
+                        <a href="productpage.html">Big Letters</a>
+                        <a href="productpage.html">Common Designs</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn" onclick="myProduct()">
+                        Decorating with Balloons
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="productpage.html">Arches</a>
+                        <a href="productpage.html">Trees</a>
+                        <a href="productpage.html">Kites</a>
+                        <a href="productpage.html">Umbrellas</a>
+                        <a href="productpage.html">Columns</a>
+                        <a href="productpage.html">Centerpieces</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn" onclick="myProduct()">
+                        Balloons in Bulk
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="productpage.html">Small Latex</a>
+                        <a href="productpage.html">Large Latex</a>
+                        <a href="productpage.html">Small Mylar</a>
+                        <a href="productpage.html">Large Mylar</a>
+                        <a href="productpage.html">Special Orders</a>
+                    </div>
+                </div>
+            </ul>
+        </nav>
+        <div class="hero">
+            <a class="prev-btn"><i class="fas fa-chevron-left"></i></a>
+            <div class="slides-container">
+                <div class="slide-image"><img src="./images/heroimage1.png" alt="image1" />
+                    <div id="dateNow">11/3/2017<br />2:45:12 p.m.</div>
+                    <h2 class="centered">IT'S NOT A PARTY WITHOUT</h2>
+                    <h1 class="center">Balloons!</h1>
+                </div>
+                <div class="slide-image"><img src="./images/heroimage2.jpeg" alt="image2" />
+                    <h1 class="centerImg">Halloween Treats!</h1>
+                </div>
+                <div class="slide-image"><img src="./images/heroimage3.jpeg" alt="image3" /></div>
+            </div>
+            <a class="next-btn"><i class="fas fa-chevron-right"></i></a>
+
+            <div class="navigation-dots "></div>
+        </div>
+        <script src="./js/images.js"></script>
+        <div class="mainSection">
+            <div class="section1">
+                <p class="sectionTitle">Product Features</p>
+                <article class="product">Even during the pandemic, life goes on...Parties, family and business gatherings are still going on in both virtual and in-person. Balloons are commonly used to attract attention or add beauty to a paticular place. Foil balloons have recently
+                    become more popular than latex balloons. They come in a wide range of sizes, shapes, colors, and designs. In comparison to the others, they ensure a longer life for the air packed in the balloon. </article>
+                <article class="product">Helium-filled foil branded balloons are a perfect fit for product launches and special events, adding a feeling of celebration. Giving these balloons out to children at events such as trade shows is a great way to get it noticed around
+                    the venue. Helium branded balloons stay afloat for hours creating maximum exposure all day long.
+
+            </div>
+            <aside class="mainAside">
+                <p class="sectionTitle ">Customer Tributes</p>
+
+                <article class="quote">
+                    A quote from the principal owner, Krista E:<br>"We have a range of colours and options available, please look at the gallery for a portfolio of pictures. Get in touch and we can discuss your requirements and how you envision your bespoke
+                    decorations. Our prime goal is your satisfaction."
+                </article>
+            </aside>
+        </div>
+    </main>
+    <footer id="pageFooter"><small><img src="./images/logo.jpeg " alt="Logo ">&copy;
+            2021 Balloonatic Asylum. All rights reserved. </small></footer>
+</body>
+
+</html>
