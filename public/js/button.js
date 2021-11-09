@@ -13,3 +13,9 @@ function myAbout() {
 function myContact() {
     window.location.assign("contact");
 }
+function loginPage() {
+    window.location.assign("login");
+}
+function registerPage() {
+    window.location.assign("register");
+}
