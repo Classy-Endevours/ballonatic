@@ -4,7 +4,8 @@ const cookieParser = require("cookie-parser");
 const flash = require("connect-flash");
 const bodyParser = require("body-parser"); // middleware
 const { body } = require("express-validator");
-const { checkLogin } = require("./controllers/loginCtrl");
+const { checkLogin, registerUser } = require("./controllers/authCtrl");
+global.universal = require('./data/balloonatic-phase2')
 const app = express();
 
 // set the view engine to ejs
@@ -31,7 +32,7 @@ app.use(function (req, res, next) {
 });
 // index page
 app.get("/", function (req, res) {
-  res.render("pages/index");
+  res.render("pages/index", { user : req.session.user });
 });
 
 // about page
@@ -55,16 +56,18 @@ app.get("/register", function (req, res, next) {
   res.render("pages/registration-form");
 });
 // save register details
-app.post("/register", function (req, res, next) {
-  const inputData = {
-    first_name: req.body.first_name,
-    last_name: req.body.last_name,
-    email_address: req.body.email_address,
-    gender: req.body.gender,
-    password: req.body.password,
-    confirm_password: req.body.confirm_password,
-  };
-});
+app.post("/register", 
+body("email")
+    .notEmpty()
+    .withMessage("email cannot be empty!")
+    .isEmail()
+    .withMessage("please give valid email"),
+  body("password")
+    .notEmpty()
+    .withMessage("password cannot be empty!")
+    .isLength({ min: 5 }),
+  registerUser
+);
 // check login details
 app.post(
   "/login",
@@ -81,7 +84,7 @@ app.post(
 );
 app.get("/logout", function (req, res) {
   req.session.destroy();
-  res.redirect("/login");
+  res.render("pages/logout");
 });
 app.listen(8080);
 console.log("Server is listening on port 8080");

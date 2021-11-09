@@ -78,7 +78,7 @@ class User {
 // Load the global array of all known user objects from the JSON file
 
 try {
-    buffer = fs.readFileSync("./balloonatic-users.json");
+    buffer = fs.readFileSync("./data/balloonatic-users.json");
     jsonObject = JSON.parse(buffer);
     users = [...jsonObject]; // works fine to copy simple arrays
     console.log(`There are ${users.length} users in the DB.`);
@@ -122,7 +122,7 @@ if (obj) console.log(`Found user: ${obj.email}`);
 // Load the global array of all customer quotes from the JSON file
 
 try {
-    buffer = fs.readFileSync("./balloonatic-quotes.json");
+    buffer = fs.readFileSync("./data/balloonatic-quotes.json");
     jsonObject = JSON.parse(buffer);
     quotes = [...jsonObject]; // works fine to copy simple arrays
     console.log(`There are ${quotes.length} quotes in the DB.`);
@@ -192,7 +192,7 @@ class Product {
 /* ************************************************************** */
 
 try {
-    buffer = fs.readFileSync("./balloonatic-products.json");
+    buffer = fs.readFileSync("./data/balloonatic-products.json");
     jsonObject = JSON.parse(buffer);
     products = [...jsonObject]; // works fine to copy simple arrays
     console.log(`There are ${products.length} products in the DB.`);
@@ -278,3 +278,14 @@ console.log(`List of US state codes is loaded.`);
 
 // Print out state codes
 if (DEBUG) console.log(`${stateCodes}`);
+
+module.exports = {
+    users,
+    models: {
+        User,
+    },
+    products,
+    quotes,
+    buffer,
+    jsonObject
+}

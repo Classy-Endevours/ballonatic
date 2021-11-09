@@ -19,3 +19,6 @@ function loginPage() {
 function registerPage() {
     window.location.assign("register");
 }
+function logoutPage() {
+    window.location.assign("logout");
+}
