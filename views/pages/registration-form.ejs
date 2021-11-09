@@ -14,11 +14,12 @@
             <input
               id="email"
               class="input"
+              data-tip="one1"
               name="email"
               type="text"
               placeholder=" "
             />
-            <div class="cut cut-short"></div>
+            <div class="tooltip-container">Email will become your site user ID</div>
             <label for="email" class="placeholder">Email</label>
           </div>
           <div class="input-container ic1">
@@ -29,7 +30,7 @@
               placeholder=" "
               name="password"
             />
-            <div class="cut"></div>
+            <div class="tooltip-container">Password must be minimum of 8 characters, and include at least 1 number and 1 UPPERCASE letter</div>
             <label for="password" class="placeholder">Password</label>
           </div>
           <div class="input-container ic1">
@@ -40,7 +41,7 @@
               placeholder=" "
               name="cpassword"
             />
-            <div class="cut"></div>
+            <div class="tooltip-container">Entry must match password above</div>
             <label for="cpassword" class="placeholder">Confirm Password</label>
           </div>
           <div class="input-container ic1">
@@ -51,7 +52,7 @@
               type="text"
               placeholder=" "
             />
-            <div class="cut"></div>
+            <div class="tooltip-container">Preferred first name</div>
             <label for="firstname" class="placeholder">First name</label>
           </div>
           <div class="input-container ic2">
@@ -62,7 +63,7 @@
               type="text"
               placeholder=" "
             />
-            <div class="cut"></div>
+            <div class="tooltip-container">Legal last name</div>
             <label for="lastname" class="placeholder">Last name</label>
           </div>
         </div>
@@ -75,7 +76,7 @@
               type="text"
               placeholder=" "
             />
-            <div class="cut"></div>
+            <div class="tooltip-container">Optional: House number and street</div>
             <label for="address" class="placeholder">Address</label>
           </div>
           <div class="input-container ic2">
@@ -86,18 +87,19 @@
               type="text"
               placeholder=" "
             />
-            <div class="cut"></div>
+            <div class="tooltip-container">Optional: City of residence</div>
             <label for="city" class="placeholder">City</label>
           </div>
           <div class="input-container ic2">
-            <input
-              name="state"
-              id="state"
-              class="input"
-              type="text"
-              placeholder=" "
-            />
-            <div class="cut"></div>
+            <select class="input" id="volume" name="state">
+              <%
+              for ( var i = 0; i < state.length; i++ )
+              {
+                  %><option value="<%=state[i] %>"><%=state[i] %></option><%
+              }
+              %>
+              </select>
+            <div class="tooltip-container">Optional: State of residence</div>
             <label for="state" class="placeholder">State</label>
           </div>
           <div class="input-container ic2">
@@ -108,7 +110,7 @@
               type="text"
               placeholder=" "
             />
-            <div class="cut"></div>
+            <div class="tooltip-container">Optional: 5 character zip code</div>
             <label for="postalCode" class="placeholder">Postal Code</label>
           </div>
           <div class="input-container ic2">
@@ -119,7 +121,7 @@
               type="text"
               placeholder=" "
             />
-            <div class="cut"></div>
+            <div class="tooltip-container">Optional: Area code plus phone # in 'xxx-xxx-xxxx' format</div>
             <label for="phone" class="placeholder">Phone</label>
           </div>
         </div>

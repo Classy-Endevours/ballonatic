@@ -54,7 +54,7 @@ app.get("/login", function (req, res, next) {
 });
 //register page
 app.get("/register", function (req, res, next) {
-  res.render("pages/registration-form");
+  res.render("pages/registration-form", { state: global.universal.stateCodes });
 });
 // save register details
 app.post(
@@ -110,10 +110,12 @@ app.post(
   }),
   body("postalCode")
     .optional()
-    .isLength({ max: 5 })
+    .isLength({ max: 5, min: 5 })
+    .isDecimal()
     .withMessage("please give valid postal code"),
   body("phone")
     .optional()
+    .isDecimal()
     .isLength({ max: 10, min: 10 })
     .withMessage("please give valid phone"),
   registerUser
@@ -141,6 +143,7 @@ app.use(function(req, res, next) {
   next(createError(404));
 });
 app.use(function (err, req, res, next) {
+  console.error(err)
   res.render("pages/error");
 })
 app.listen(8080);
