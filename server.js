@@ -155,7 +155,6 @@ app.use(function(req, res, next) {
   next(createError(404));
 });
 app.use(function (err, req, res, next) {
-  console.error(err)
   res.render("pages/error");
 })
 app.listen(8080);
