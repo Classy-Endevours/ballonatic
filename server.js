@@ -98,15 +98,15 @@ app.post(
     .withMessage("please give valid name"),
   body("lastname")
     .notEmpty()
-    .withMessage("firstname cannot be empty!")
+    .withMessage("lastname cannot be empty!")
     .isLength({ max: 25 })
     .withMessage("please give valid name"),
   body("address")
-    .optional()
+    .optional({checkFalsy: true})
     .isLength({ max: 30 })
     .withMessage("please give valid address"),
   body("city")
-    .optional()
+    .optional({checkFalsy: true})
     .isLength({ max: 25 })
     .withMessage("please give valid city"),
   body("state")
@@ -121,15 +121,22 @@ app.post(
     }
   }),
   body("postalCode")
-    .optional()
+    .optional({checkFalsy: true})
     .isLength({ max: 5, min: 5 })
     .isDecimal()
     .withMessage("please give valid postal code"),
   body("phone")
-    .optional()
-    .isDecimal()
-    .isLength({ max: 10, min: 10 })
-    .withMessage("please give valid phone"),
+    .custom((value, { req }) => {
+      const newValue = value.replace(/-/g,""); 
+      if(!value){
+        return true;
+      } else {
+        if(/^\d{10}$/.test(newValue)){
+          return true
+        }
+        throw new Error("Not a valid phone number!");
+      }
+    }),
   registerUser
 );
 // check login details
