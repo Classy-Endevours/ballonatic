@@ -131,11 +131,6 @@ app.post(
       if(!value){
         return true;
       } else {
-        console.log({
-          value,
-          3: value[3],
-          6: value[6]
-        })
         if(value[3] !== '-' || value[7] !== '-'){
           throw new Error("Not a valid phone number, please check format!");
         }
